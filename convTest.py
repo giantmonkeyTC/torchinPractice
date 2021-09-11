@@ -10,7 +10,6 @@ loader = torchvision.transforms.ToTensor()
 unloader = torchvision.transforms.ToPILImage()
 imageTensor = loader(pic=image)
 tensor = imageTensor.unsqueeze(0)
-print(tensor)
 filt = np.array([[0, 0, 0],
                  [0, 0, 0],
                  [0, 0, 0]])
@@ -19,3 +18,9 @@ x = conv(tensor)
 img = x.squeeze(0)
 newImage = unloader(img)
 newImage.show()
+
+
+def convolve(image, filt):
+    height, width = image.shape
+    h, w = filt.shape
+
